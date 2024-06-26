@@ -7,9 +7,15 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     uploadPhoto(fileName)
   ];
 
-  return Promise.all(promises.map(promise => {
-    return promise
-      .then(value => ({ status: 'fulfilled', value }))
-      .catch(error => ({ status: 'rejected', value: error.message }));
-  }));
+  return Promise.allSettled(promises)
+    .then(results => {
+      return results.map(result => ({
+        status: result.status,
+        value: result.status === 'fulfilled' ? result.value : result.reason
+      }));
+    })
+    .catch(error => {
+      console.error('Error in handleProfileSignup:', error);
+      return []; // Return empty array if there's an unexpected error
+    });
 }
