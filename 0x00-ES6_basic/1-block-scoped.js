@@ -1,10 +1,10 @@
 export default function taskBlock(trueOrFalse) {
-  let task = false;  // Declare using `let` for block scope
-  let task2 = true;  // Declare using `let` for block scope
+  const task = false;
+  const task2 = true;
 
   if (trueOrFalse) {
-    let task = true;  // Declare using `let` to create a new variable within the block
-    let task2 = false; // Declare using `let` to create a new variable within the block
+    const innerTask = true;
+    const innerTask2 = false;
   }
 
   return [task, task2];
