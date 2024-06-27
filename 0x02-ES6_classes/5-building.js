@@ -8,6 +8,6 @@ export default class Building {
   }
 
   evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+    throw new Error(`${this.constructor.name} must override evacuationWarningMessage`);
   }
 }
