@@ -3,7 +3,7 @@
  * @param {String} message is  The message to display.
  * @author Nana <https://github.com/Nanakzy>
  */
-const displayMessage(message) {
+function displayMessage(message) {
     console.log(message);
 }
 
