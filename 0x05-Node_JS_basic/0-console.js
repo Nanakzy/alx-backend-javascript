@@ -1,7 +1,7 @@
 /**
  * Displays a message on the STDOUT.
- * @param {String} msg The message to display.
- * @author Bezaleel Olakunori <https://github.com/B3zaleel>
+ * @param {String} message is  The message to display.
+ * @author Nana <https://github.com/Nanakzy>
  */
 const displayMessage(message) {
     console.log(message);
