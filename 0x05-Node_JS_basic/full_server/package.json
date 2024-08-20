@@ -1,0 +1,18 @@
+{
+  "name": "full_server",
+  "version": "1.0.0",
+  "description": "A simple server for Holberton School project",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node --presets @babel/preset-env ./server.js ./database.csv"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "@babel/preset-env": "^7.25.3",
+    "nodemon": "^2.0.22"
+  }
+}
