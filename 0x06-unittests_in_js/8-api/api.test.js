@@ -16,3 +16,48 @@ describe('Index page', () => {
     });
   });
 });
+
+describe('Cart page', () => {
+  it('correct status code when id is a number', (done) => {
+    request.get('http://localhost:7865/cart/12', (error, response, body) => {
+      expect(response.statusCode).to.equal(200);
+      expect(body).to.equal('Payment methods for cart 12');
+      done();
+    });
+  });
+
+  it('correct status code when id is NOT a number', (done) => {
+    request.get('http://localhost:7865/cart/hello', (error, response, body) => {
+      expect(response.statusCode).to.equal(404);
+      done();
+    });
+  });
+});
+
+describe('Available payments', () => {
+  it('correct status code and result', (done) => {
+    request.get('http://localhost:7865/available_payments', (error, response, body) => {
+      expect(response.statusCode).to.equal(200);
+      expect(JSON.parse(body)).to.deep.equal({
+        payment_methods: {
+          credit_cards: true,
+          paypal: false
+        }
+      });
+      done();
+    });
+  });
+});
+
+describe('Login', () => {
+  it('correct status code and result', (done) => {
+    request.post({
+      url: 'http://localhost:7865/login',
+      json: { userName: 'Betty' }
+    }, (error, response, body) => {
+      expect(response.statusCode).to.equal(200);
+      expect(body).to.equal('Welcome Betty');
+      done();
+    });
+  });
+});
